@@ -1,0 +1,31 @@
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+
+public class coin : MonoBehaviour {
+
+	
+	private int score;
+	public Text scoreText;
+	
+	void Start ()
+	{
+		Rigidbody rb = GetComponent<Rigidbody> ();
+		score = 0;
+		scoreText .text = "Score :" + score.ToString();
+	}
+
+	
+	void OnCollisionEnter(Collision other) 
+	{
+		if (other.gameObject.tag== "coin")
+		{
+			score=score+1;
+			scoreText .text ="Score :"+score .ToString();
+			Destroy(this.gameObject);
+		
+		}
+	}
+
+	
+}
